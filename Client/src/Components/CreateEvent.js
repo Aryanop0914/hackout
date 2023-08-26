@@ -9,31 +9,30 @@ const CreateEvent = () => {
     backgroundColor: "rgb(17 24 39)",
     theme: "dark",
   };
-  const [fname, setFname] = useState(" ");
-  const [lname, setLname] = useState(" ");
-  const [address, setAddress] = useState(" ");
-  const [mnumber, setMnumber] = useState(" ");
-  const [city, setCity] = useState(" ");
-  const [state, setState] = useState(" ");
-  const [zip, setZip] = useState(" ");
+  const [title, setTitle] = useState(" ");
+  const [type, setType] = useState(" ");
+  const [description, setDescription] = useState(" ");
+  const [date, setDate] = useState(" ");
+  const [time, setTime] = useState(" ");
+  const [sponsors, setSponsors] = useState(" ");
+  const [speaker, setSpeaker] = useState(" ");
   const register = useSelector((state) => state.register.value);
   const { email } = register;
   const handlesubmit = () => {
-    console.log(fname, lname, address, mnumber, city, state, zip);
-    fetch("http://localhost:5000/addshippingaddress", {
+    fetch("http://localhost:5000/createevent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email,
-        fname,
-        lname,
-        address,
-        mnumber,
-        city,
-        state,
-        zip,
+        title,
+        type,
+        description,
+        date,
+        time,
+        sponsors,
+        speaker,
       }),
     })
       .then((response) => response.json())
@@ -44,8 +43,7 @@ const CreateEvent = () => {
         console.log(err.message);
       });
   };
-  const added = () =>
-    toast.success("Shipping details Added Succesfully", style);
+  const added = () => toast.success("Event Created Succesfully", style);
   return (
     <section className="text-gray-400 bg-gray-900 min-h-screen body-font">
       <ToastContainer />
@@ -57,20 +55,20 @@ const CreateEvent = () => {
           Add details releted to your Event
         </h2>
       </div>
-      <div className="flex flex-wrap mx-auto pt-24 mb-6 ">
+      <div className="flex flex-wrap mx-auto pt-10 mb-6 ">
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
             className="block uppercase tracking-wide text-indigo-400 text-sm font-bold mb-2"
             htmlFor="grid-first-name"
           >
-            First Name
+            Title:
           </label>
           <input
             className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             id="grid-first-name"
             type="text"
-            placeholder="Aryan"
-            onChange={(e) => setFname(e.target.value)}
+            placeholder="Enter The Title"
+            onChange={(e) => setTitle(e.target.value)}
           />
         </div>
         <div className="w-full md:w-1/2 px-3">
@@ -78,94 +76,97 @@ const CreateEvent = () => {
             className="block uppercase tracking-wide text-indigo-400 text-sm font-bold mb-2"
             htmlFor="grid-last-name"
           >
-            Last Name
+            Type/Theme:
           </label>
           <input
             className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             id="grid-last-name"
             type="text"
-            placeholder="Patel"
-            onChange={(e) => setLname(e.target.value)}
+            placeholder="Enter Your Theme"
+            onChange={(e) => setType(e.target.value)}
           />
         </div>
       </div>
       <div className="flex flex-wrap mx-auto mb-6">
-        <div className="w-full md:w-2/3 px-3 mb-6 md:mb-0">
+        <div className="w-full md:w-3/3 px-3 mb-6 md:mb-0">
           <label
             className="block uppercase tracking-wide text-indigo-400 text-sm font-bold mb-2"
             htmlFor="grid-password"
           >
-            Address:
+            Description:
           </label>
           <input
             className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-2 px-3 leading-8 transition-colors duration-200 ease-in-outappearance-none"
             id="grid-password"
             type="text"
-            placeholder=""
-            onChange={(e) => setAddress(e.target.value)}
-          />
-        </div>
-        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-          <label
-            className="block uppercase tracking-wide text-indigo-400 text-sm font-bold mb-2"
-            htmlFor="grid-first-name"
-          >
-            Mobile No.
-          </label>
-          <input
-            className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            id="grid-first-name"
-            type="text"
-            placeholder="91*********"
-            onChange={(e) => setMnumber(e.target.value)}
+            placeholder="Enter Some Description"
+            onChange={(e) => setDescription(e.target.value)}
           />
         </div>
       </div>
       <div className="flex flex-wrap mx-auto mb-2">
-        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+        <div className="w-full md:w-2/4 px-3 mb-6 md:mb-0">
+          <label
+            className="block uppercase tracking-wide text-indigo-400 text-sm font-bold mb-2"
+            htmlFor="grid-first-name"
+          >
+            Date:
+          </label>
+          <input
+            className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            id="grid-first-name"
+            type="date"
+            placeholder="Enter The Date"
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </div>
+        <div className="w-full md:w-2/4 px-3 mb-6 md:mb-0">
           <label
             className="block uppercase tracking-wide text-indigo-400 text-sm font-bold mb-2"
             htmlFor="grid-city"
           >
-            City
+            Time
           </label>
           <input
             className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             id="grid-city"
-            type="text"
-            placeholder="Nadiad"
-            onChange={(e) => setCity(e.target.value)}
+            type="time"
+            placeholder="Enter The Time"
+            onChange={(e) => setTime(e.target.value)}
           />
         </div>
-        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      </div>
+      <div className="flex flex-wrap mx-auto mb-2">
+        <div className="w-full md:w-2/4 px-3 mb-6 md:mb-0">
           <label
             className="block uppercase tracking-wide text-indigo-400 text-sm font-bold mb-2"
             htmlFor="grid-state"
           >
-            State
+            Sponsors
           </label>
           <div className="relative">
             <input
               className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               id="grid-state"
               type="text"
-              onChange={(e) => setState(e.target.value)}
+              placeholder="Enter Sponsors"
+              onChange={(e) => setSponsors(e.target.value)}
             />
           </div>
         </div>
-        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+        <div className="w-full md:w-2/4 px-3 mb-6 md:mb-0">
           <label
             className="block uppercase tracking-wide text-indigo-400 text-sm font-bold mb-2"
             htmlFor="grid-zip"
           >
-            Zip
+            Speaker:
           </label>
           <input
             className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             id="grid-zip"
             type="text"
-            placeholder="387002"
-            onChange={(e) => setZip(e.target.value)}
+            placeholder="Enter Speaker's Name"
+            onChange={(e) => setSpeaker(e.target.value)}
           />
         </div>
       </div>
