@@ -12,28 +12,27 @@ const Intro = () => {
             <br />
           </h1>
           <p className="mb-8 leading-relaxed">
-            At Edusakha, we strive to make your shopping journey swift,
-            convenient, and enjoyable. Discover a wide selection of products
-            ranging from electronics and fashion to home essentials and more,
-            all just a few clicks away.
+            Edusakha specializes in seamlessly organizing and managing virtual
+            events, providing a comprehensive platform for creating, hosting,
+            and overseeing online gatherings of all types and sizes.
           </p>
           <div className="flex justify-center">
-            <Link
+            {/* <Link
               to="/products/allproducts"
               className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6
               focus:outline-none hover:bg-indigo-600 rounded text-lg"
             >
               {" "}
               Start Shopping
-            </Link>
+            </Link> */}
           </div>
         </div>
         <div className="mr-3 lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-          <img
+          {/* <img
             className="object-cover object-center rounded"
             alt="hero"
             src="/images/buds.png"
-          />
+          /> */}
         </div>
       </div>
       <Contactus />
