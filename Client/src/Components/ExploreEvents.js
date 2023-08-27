@@ -38,7 +38,10 @@ const ExploreEvents = () => {
                       {event.title}
                     </h1>
                     <p className="leading-relaxed mb-3">{event.description}</p>
-                    <Link className="text-indigo-400 inline-flex items-center">
+                    <Link
+                      to="eventroom"
+                      className="text-indigo-400 inline-flex items-center"
+                    >
                       Enter
                       <svg
                         className="w-4 h-4 ml-2"
