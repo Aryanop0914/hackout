@@ -16,4 +16,8 @@ router.post("/adduniversityinfo", registerController.universityinfo);
 
 router.post("/createevent", eventController.createEvent);
 
+router.post("/manageevent", eventController.fetchEvent);
+
+router.get("/getallevents", eventController.fetchallEvent);
+
 module.exports = router;

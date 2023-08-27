@@ -102,7 +102,7 @@ const Navbar = () => {
             <Link to="/" className="mr-5 hover:text-white">
               Home
             </Link>
-            <Link to="/explore" className="mr-5 hover:text-white">
+            <Link to="/exploreevent" className="mr-5 hover:text-white">
               Explore Events
             </Link>
             <Link
@@ -151,7 +151,9 @@ const Navbar = () => {
             <Link to="/createEvent" className="mr-5 hover:text-white">
               Create Event
             </Link>
-            <Link className="mr-5 hover:text-white">Manage Event</Link>
+            <Link to="/manageevent" className="mr-5 hover:text-white">
+              Manage Event
+            </Link>
             <Link
               to="/"
               className="text-black inline-flex items-center bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded mt-4 md:mt-0"
