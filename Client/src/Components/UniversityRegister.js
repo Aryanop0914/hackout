@@ -36,7 +36,7 @@ const UniversityRegister = () => {
   };
   const otp = generateotp();
   const sendotp = () => {
-    fetch("http://localhost:5000/otp", {
+    fetch("https://edusakha.onrender.com/otp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -77,7 +77,7 @@ const UniversityRegister = () => {
         otp: otp,
       })
     );
-    fetch("http://localhost:5000/adduniversityinfo", {
+    fetch("https://edusakha.onrender.com/adduniversityinfo", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

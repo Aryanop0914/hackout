@@ -7,7 +7,7 @@ const ExploreEvents = () => {
   const register = useSelector((state) => state.register.value);
   const { email } = register;
   useEffect(() => {
-    fetch("http://localhost:5000/getallevents", {
+    fetch("https://edusakha.onrender.com/getallevents", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ const ExploreEvents = () => {
                     </h1>
                     <p className="leading-relaxed mb-3">{event.description}</p>
                     <Link
-                      to="eventroom"
+                      to="/eventroom"
                       className="text-indigo-400 inline-flex items-center"
                     >
                       Enter

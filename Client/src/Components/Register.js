@@ -55,7 +55,7 @@ const Register = () => {
     }
   };
   const sendotp = () => {
-    fetch("http://localhost:5000/otp", {
+    fetch("https://edusakha.onrender.com/otp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

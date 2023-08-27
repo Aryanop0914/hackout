@@ -19,7 +19,7 @@ const CreateEvent = () => {
   const register = useSelector((state) => state.register.value);
   const { email } = register;
   const handlesubmit = () => {
-    fetch("http://localhost:5000/createevent", {
+    fetch("https://edusakha.onrender.com/createevent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

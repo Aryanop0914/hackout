@@ -7,7 +7,7 @@ const ManageEvent = () => {
   const register = useSelector((state) => state.register.value);
   const { email } = register;
   useEffect(() => {
-    fetch("http://localhost:5000/manageevent", {
+    fetch("https://edusakha.onrender.com/manageevent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
